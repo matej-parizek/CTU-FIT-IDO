@@ -35,10 +35,11 @@ public class FlightRepositoryTest {
 
     }
 
-    @Ignore("Test is not implemented")
+//    @Ignore("Test is not implemented")
     @Test
     public void shouldLoadGliderFlights() {
-        // TODO tutorial-3.3: Implement a test that checks that there are 2 gliders in a DB
+        List<Flight> gliderFlights = testSubject.findAllByFlightType(Flight.Type.GLIDER);
+        assertEquals("There should be 2 glider flights", 2, gliderFlights.size());
     }
 
     @Test

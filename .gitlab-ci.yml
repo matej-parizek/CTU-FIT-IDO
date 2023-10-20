@@ -16,18 +16,31 @@ cache:
 
 compile:
   stage: compile
+  image: ${CI_REGISTRY}/bi-ido/bi-ido-registry/maven:3.8.6-openjdk-18
   script:
     - *setup-mvn
-    - echo "Compiling the application"
+    - ./mvnw clean compile
 
 test:
   stage: test
+  image: ${CI_REGISTRY}/bi-ido/bi-ido-registry/markhobson/maven-chrome:jdk-18 # this image as well uses maven 3.8.6
   script:
     - *setup-mvn
-    - echo "Testing the application. This step produces test reports artifacts"
+    - ./mvnw test
+  artifacts:
+    name: "Surefire test reports from $CI_PROJECT_NAME on $CI_COMMIT_REF_SLUG"
+    expire_in: 1 day
+    reports:
+      junit:
+        - "**/target/surefire-reports/TEST-*.xml"
 
 build:
   stage: build
+  image: ${CI_REGISTRY}/bi-ido/bi-ido-registry/maven:3.8.6-openjdk-18
   script:
     - *setup-mvn
-    - echo "Building the application. This step produces jar artifacts"
+    - ./mvnw package -DskipTests
+  artifacts:
+    name: "Maven artifacts from $CI_PROJECT_NAME on $CI_COMMIT_REF_SLUG"
+    paths:
+      - "**/target/*.jar"
