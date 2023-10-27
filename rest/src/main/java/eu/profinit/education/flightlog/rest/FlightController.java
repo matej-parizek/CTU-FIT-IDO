@@ -51,10 +51,9 @@ public class FlightController {
 
     @PostMapping("/flight/takeoff")
     public ResponseEntity<Serializable> takeoff(@RequestBody FlightTakeoffTo start) {
-        // TODO tutorial-4.2: Remove this commented-out code
-        // for (int i = 0; i <= 10; i++) {
-        // System.out.println("Just printing i:" + i);
-        // }
+         for (int i = 0; i <= 10; i++) {
+         System.out.println("Just printing i:" + i);
+         }
         log.debug("Start\n{}", start);
 
         flightService.takeoff(start);

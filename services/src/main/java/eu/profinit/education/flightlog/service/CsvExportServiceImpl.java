@@ -32,12 +32,10 @@ public class CsvExportServiceImpl implements CsvExportService {
     private final FlightRepository flightRepository;
 
     private final String fileName;
-    private String neverUsedField;
 
     public CsvExportServiceImpl(FlightRepository flightRepository, @Value("${csv.export.flight.fileName}") String fileName) {
         this.flightRepository = flightRepository;
         this.fileName = fileName;
-        this.neverUsedField = "redundant";
     }
 
     @Override
