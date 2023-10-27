@@ -14,11 +14,13 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Task {
 
-    public final static Task TowelPlaneTask = new Task("VLEK");
+    public final static Task TOWPLANE_TASK = new Task("VLEK");
 
     @Getter
     @Column(name= JpaConstants.Columns.TASK)
     private String value;
+
+
 
     public static Task of(String value) {
         return new Task(value);
