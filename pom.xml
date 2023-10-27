@@ -99,6 +99,7 @@
                 <artifactId>dependency-check-maven</artifactId>
                 <version>8.3.1</version>
                 <configuration>
+
                     <format>ALL</format>
                 </configuration>
             </plugin>
