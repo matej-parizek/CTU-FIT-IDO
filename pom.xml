@@ -90,7 +90,7 @@
                 <artifactId>commons-csv</artifactId>
                 <version>${apache.commons.csv.version}</version>
             </dependency>
-        </dependencies
+        </dependencies>
     </dependencyManagement>
     <build>
         <plugins>
