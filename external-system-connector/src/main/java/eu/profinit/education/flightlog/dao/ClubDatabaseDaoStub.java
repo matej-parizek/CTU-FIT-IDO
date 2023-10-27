@@ -9,15 +9,18 @@ import java.util.List;
 @Component
 @Profile("stub")
 public class ClubDatabaseDaoStub implements ClubDatabaseDao {
+
     @Override
     public List<User> getUsers() {
+        String backOffice = "BACKOFFICE";
+        String pilot = "PILOT";
         return Arrays.asList(
-            new User(1L, "Kamila", "Spoustová", Arrays.asList("PILOT")),
-            new User(2L, "Naděžda", "Pavelková", Arrays.asList("PILOT")),
-            new User(3L, "Silvie", "Hronová", Arrays.asList("PILOT")),
-            new User(9L, "Miloš", "Korbel", Arrays.asList("PILOT", "BACKOFFICE")),
-            new User(10L, "Petr", "Hrubec", Arrays.asList("PILOT", "BACKOFFICE")),
-            new User(13L, "Michal", "Vyvlečka", Arrays.asList("BACKOFFICE"))
+            new User(1L, "Kamila", "Spoustová", List.of(pilot)),
+            new User(2L, "Naděžda", "Pavelková", List.of(pilot)),
+            new User(3L, "Silvie", "Hronová", List.of(pilot)),
+            new User(9L, "Miloš", "Korbel", Arrays.asList(pilot, backOffice)),
+            new User(10L, "Petr", "Hrubec", Arrays.asList(pilot, backOffice)),
+            new User(13L, "Michal", "Vyvlečka", List.of(backOffice))
         );
     }
 }

@@ -14,7 +14,7 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Task {
 
-    public static Task TOWPLANE_TASK = new Task("VLEK");
+    public final static Task TowelPlaneTask = new Task("VLEK");
 
     @Getter
     @Column(name= JpaConstants.Columns.TASK)
