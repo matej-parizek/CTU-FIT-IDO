@@ -44,3 +44,10 @@ build:
     name: "Maven artifacts from $CI_PROJECT_NAME on $CI_COMMIT_REF_SLUG"
     paths:
       - "**/target/*.jar"
+check:
+  stage: build
+  image: ${CI_REGISTRY}/bi-ido/bi-ido-registry/maven:3.8.6-openjdk-18
+  script:
+    - chmod a+x mvnw
+    - ./mvnw clean compile
+    - ./mvnw sonar:sonar -Dsonar.projectKey=flight-log-parizmat -Dsonar.projectName=flight-log-parizmat -Dsonar.host.url=$SONAR_URL -Dsonar.token=$SONAR_TOKEN
