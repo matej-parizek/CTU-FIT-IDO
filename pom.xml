@@ -90,8 +90,21 @@
                 <artifactId>commons-csv</artifactId>
                 <version>${apache.commons.csv.version}</version>
             </dependency>
-        </dependencies>
+        </dependencies
     </dependencyManagement>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>8.4.0</version>
+                <configuration>
+                    <format>ALL</format>
+                    <cveUrlModified>http://services.okd.in.fit.cvut.cz/nvd/nvdcve-1.1-modified.json.gz</cveUrlModified>
+                    <cveUrlBase>http://services.okd.in.fit.cvut.cz/nvd/nvdcve-1.1-%d.json.gz</cveUrlBase>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
