@@ -2,7 +2,7 @@ stages:
   - compile
   - test
   - build
-   package
+  - package
 
 .setup-mvn: &setup-mvn
   - chmod a+x mvnw
