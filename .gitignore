@@ -45,4 +45,4 @@ frontend/dist
 
 # OS
 .DS_STORE
-Thumbs.db
+Thumbs.db!/resources/
